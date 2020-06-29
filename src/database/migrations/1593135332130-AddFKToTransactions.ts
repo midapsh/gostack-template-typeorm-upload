@@ -2,7 +2,7 @@ import { MigrationInterface, QueryRunner, TableForeignKey } from 'typeorm';
 
 export default class AddFKToTransactions1593135332130
   implements MigrationInterface {
-  public async up(queryRunner: QueryRunner): Promise<any> {
+  public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createForeignKey(
       'transactions',
       new TableForeignKey({
@@ -16,7 +16,7 @@ export default class AddFKToTransactions1593135332130
     );
   }
 
-  public async down(queryRunner: QueryRunner): Promise<any> {
+  public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey(
       'transactions',
       'FK_Transactions_Categories',
